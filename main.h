@@ -55,5 +55,12 @@ int handlers_c(va_list args);
  */
 int handlers_s(va_list args);
 
+/**
+ * handlers_di - Handles the %d and %i format specifiers for integers.
+ * @args: The list of variable arguments passed to _printf.
+ *
+ * Return: The number of characters printed.
+ */
+int handlers_di(va_list args);
 #endif /* MAIN_H */
 

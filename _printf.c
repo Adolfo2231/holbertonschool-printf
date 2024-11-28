@@ -40,6 +40,10 @@ int _printf(const char *format, ...)
 					count += _putchar('%');
 					count += _putchar(*format);
 					break;
+				case 'i':
+				case 'd': /* Specfier %i & %d */
+					count += handlers_di(args);
+					break;
 			}
 		}
 		else /* Imprime texto literal */

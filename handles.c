@@ -61,3 +61,38 @@ int handlers_s(va_list args)
 	}
 	return (count);
 }
+
+/**
+ * handlers_di - Handles the conversion specifiers 'd' and 'i'
+ * @args: Variadic arguments list containing the integer to print
+ * Return: The number of characters printed
+ */
+int handlers_di(va_list args)
+{
+	int n = va_arg(args, int);
+	int count = 0;
+	unsigned int num;
+	char buffer[20];
+	int i = 0;
+
+	if (n < 0) /* Handle negative numbers */
+	{
+		count += _putchar('-');
+		num = -n; /* Convert to positive for printing */
+	}
+	else
+	{
+		num = n;
+	}
+	do {
+		buffer[i++] = (num % 10) + '0'; /* Get the last digit */
+		num /= 10; /* Remove the last digit */
+	} while (num > 0);
+	/* Print the digits in the correct order */
+	while (i--)
+	{
+		count += _putchar(buffer[i]);
+	}
+	return (count);
+}
+

@@ -32,6 +32,11 @@ int main(void)
 	/* Test an unsupported format specifier */
 	_printf("%r\n");
 
+	_printf("%i\n", 1);
+	_printf("%i\n", 10);
+	_printf("%i\n", -1);
+	_printf("%i\n", -10);
+
 	return (0);
 }
 
