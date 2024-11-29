@@ -40,6 +40,16 @@ int _putchar(char c);
  */
 
 /**
+ * handle_specifier - Processes a single format specifier.
+ * @format: The format specifier to handle.
+ * @args: The list of arguments for the specifier.
+ *
+ * Return: The number of characters printed for the specifier.
+ */
+
+int handle_specifier(const char *format, va_list args);
+
+/**
  * handlers_c - Handles the %c format specifier for characters.
  * @args: A list of arguments pointing to the character to print.
  *
@@ -53,6 +63,7 @@ int handlers_c(va_list args);
  *
  * Return: The number of characters printed.
  */
+
 int handlers_s(va_list args);
 
 /**
@@ -62,5 +73,5 @@ int handlers_s(va_list args);
  * Return: The number of characters printed.
  */
 int handlers_di(va_list args);
-#endif /* MAIN_H */
 
+#endif /* MAIN_H */

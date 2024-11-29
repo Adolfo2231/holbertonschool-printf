@@ -28,23 +28,7 @@ int _printf(const char *format, ...)
 		if (*format == '%') /* Identifica un especificador */
 		{
 			format++;
-			switch (*format)
-			{
-				case 'c': /* Especificador %c */
-					count += handlers_c(args);
-					break;
-				case 's':/* Especificador %s */
-					count += handlers_s(args);/* Manage strings*/
-					break;
-				default: /* Especificador desconocido */
-					count += _putchar('%');
-					count += _putchar(*format);
-					break;
-				case 'i':
-				case 'd': /* Specfier %i & %d */
-					count += handlers_di(args);
-					break;
-			}
+			handle_specifier(format, args);/* Maneja 'c', 's', 'd', 'i' */
 		}
 		else /* Imprime texto literal */
 		{
@@ -53,5 +37,5 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	return (count); /* Conteo de caracteres */
+	return (count + 1); /* Conteo de caracteres (mas 1 por '\0') */
 }

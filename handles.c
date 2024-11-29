@@ -1,11 +1,50 @@
 #include "main.h"
 
 /**
+ * handle_specifier - Processes a single format specifier.
+ * @format: The format specifier to handle.
+ * @args: The list of arguments for the specifier.
+ *
+ * Return: The number of characters printed for the specifier.
+ */
+
+int handle_specifier(const char *format, va_list args)
+{
+	int count = 0;
+
+	if (*format == '%')
+	{
+		count += _putchar('%');
+		return (count);
+	}
+
+	switch (*format)
+	{
+		case 'c': /* Especificador %c */
+			count += handlers_c(args);
+			break;
+		case 's': /* Especificador %s */
+			count += handlers_s(args); /* Manage strings */
+			break;
+		case 'i':
+		case 'd': /* Especificador %i & %d */
+			count += handlers_di(args);
+			break;
+		default: /* Especificador desconocido */
+			count += _putchar('%');
+			count += _putchar(*format);
+			break;
+	}
+	return (count);
+}
+
+/**
  * handlers_c - Handles the %c format specifier for characters.
  * @args: The list of variable arguments passed to _printf.
  *
  * Return: The number of characters printed.
  */
+
 int handlers_c(va_list args)
 {
 	int count = 0;
@@ -95,4 +134,3 @@ int handlers_di(va_list args)
 	}
 	return (count);
 }
-
