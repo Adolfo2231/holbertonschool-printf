@@ -1,100 +1,84 @@
-.TH PRINTF 3 "November 2024" "Holberton School" "Manual for the _printf function"
+_PRINTF(3)                 Library Functions Manual                 _PRINTF(3)
 
-.SH NAME
-_printf \- custom implementation of the printf function
+NAME
+     _printf – custom formatted output conversion
 
-.SH SYNOPSIS
-.B #include <main.h>
-.br
-.B int _printf(const char *format, ...);
+SYNOPSIS
+     #include "main.h"
 
-.SH DESCRIPTION
-The
-.B _printf
-function produces output according to a format string, similarly to the standard printf function in C.
+     int _printf(const char *format, ...);
 
-.PP
-The format string contains fixed text and format specifiers, which serve as placeholders for the variables provided as additional arguments. Supported specifiers include:
+DESCRIPTION
+     The `_printf()` function writes output to `stdout` under the control of a
+     format string that specifies how subsequent arguments are converted for
+     output.
 
-.TP
-.B %c
-Prints a single character.
+     The format string is composed of zero or more directives: ordinary
+     characters (except `%`), which are copied unchanged to the output stream;
+     and conversion specifications, each of which results in fetching zero or
+     more subsequent arguments.
 
-.TP
-.B %s
-Prints a string of characters.
+     The conversion specifications supported by `_printf()` are:
 
-.TP
-.B %%
-Prints a percentage sign.
+     **Conversion Specifiers:**
 
-.TP
-.B %d
-Prints a signed decimal integer.
+     - **%c**
+       Prints a single character.
 
-.TP
-.B %i
-Prints a signed decimal integer (identical to %d).
+     - **%s**
+       Prints a string of characters.
 
-.PP
-Undefined behavior occurs if the format string contains unsupported specifiers or if insufficient arguments are provided to match the specifiers.
+     - **%d, %i**
+       Prints a signed decimal integer. Handles negative numbers by printing a
+       leading minus sign and converting the number to positive for processing.
 
-.SH PARAMETERS
-.TP
-.B format
-A format string containing fixed text and format specifiers. This string must be null-terminated (`\0`).
+     - **%%**
+       Prints a literal `%` character.
 
-.TP
-.B ...
-Additional arguments that will replace the format specifiers in the format string.
+     **Note:** The `_printf()` function does not support flags, field width,
+     precision, or length modifiers. It only handles the basic conversion
+     specifiers listed above.
 
-.SH RETURN VALUE
-The
-.B _printf
-function returns the number of characters printed (excluding the null byte used to end output to strings).
-In case of an error, it returns a negative value.
+RETURN VALUE
+     Upon successful completion, `_printf()` returns the number of characters
+     printed (excluding the null byte used to end output to strings). If an
+     output error is encountered, a negative value is returned.
 
-.SH EXAMPLES
-Basic usage example:
-.PP
-.nf
-#include <main.h>
-.br
-int main(void) {
-.br
-    _printf("Hello, %s!\n", "world");
-.br
-    _printf("The number is: %d\n", 42);
-.br
-    return (0);
-}
-.fi
+EXAMPLES
+     **Example 1: Printing characters and strings**
 
-Output of the example:
-.PP
-Hello, world!
-.br
-The number is: 42
+     ```c
+     _printf("Character: %c\n", 'A');
+     _printf("String: %s\n", "Hello, World!");
+     ```
 
-.SH LIMITATIONS
-Currently, the implementation of
-.B _printf
-does not support:
-.PP
-- Flags such as `+`, ` `, or `#`.
-.br
-- Field width or precision.
-.br
-- Length modifiers such as `l` or `h`.
+     **Example 2: Printing integers**
 
-.SH SEE ALSO
-.B printf(3),
-.B write(2)
+     ```c
+     _printf("Signed integer: %d\n", -12345);
+     _printf("Another integer: %i\n", 67890);
+     ```
 
-.SH AUTHOR
-Developed by:
-.PP
-- Adolfo Rodriguez: Lead developer of the `_printf` function, core logic, and the implementation of `%c`, `%s`, and `%%` specifiers.
-.PP
-- Carlos Valentin: Developer of the `%d` and `%i` specifiers and author of the README.md documentation.
+     **Example 3: Printing a percent sign**
+
+     ```c
+     _printf("Percent sign: %%\n");
+     ```
+
+NOTES
+     - The `_printf()` function is a simplified version of the standard
+       `printf()` function and is designed for basic formatted output.
+     - It does not handle floating-point numbers (`%f`, `%e`, `%g`), unsigned
+       integers (`%u`), octal numbers (`%o`), hexadecimal numbers (`%x`, `%X`),
+       or pointer addresses (`%p`).
+     - Since it does not support field width or precision, it cannot format
+       numbers with leading zeros, spaces, or align text within a specified
+       width.
+
+SEE ALSO
+     `printf(3)`, `putchar(3)`
+
+AUTHORS
+     Carlos Valentin
+     Adolfo Rodriguez
 

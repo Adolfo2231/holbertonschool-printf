@@ -116,12 +116,12 @@ int handlers_di(va_list args)
 
 	if (n < 0) /* Handle negative numbers */
 	{
-		count += _putchar('-');
+		count += _putchar('-'); /* Prints '-' before negative numbers */
 		num = -n; /* Convert to positive for printing */
 	}
 	else
 	{
-		num = n;
+		num = n; /* Handles regular numbers */
 	}
 	do {
 		buffer[i++] = (num % 10) + '0'; /* Get the last digit */
