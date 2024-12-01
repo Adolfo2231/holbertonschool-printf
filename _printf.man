@@ -4,7 +4,7 @@ NAME
      _printf – custom formatted output conversion
 
 SYNOPSIS
-     #include "main.h"
+     #include <stdarg.h>
 
      int _printf(const char *format, ...);
 
@@ -76,9 +76,8 @@ NOTES
        width.
 
 SEE ALSO
-     `printf(3)`, `putchar(3)`
+     `printf(3)`, `putchar(3)`, `puts(3)`, `vprintf(3)`
 
 AUTHORS
      Carlos Valentin
      Adolfo Rodriguez
-
