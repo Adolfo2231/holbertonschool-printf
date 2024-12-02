@@ -30,8 +30,11 @@ int handle_specifier(const char *format, va_list args)
 		case '%':
 			count += _putchar('%');
 			break;
-		default:
+		case 'r':
 			count += _putchar('%');
+			count += _putchar('r');
+			break;
+		default:
 			count += _putchar(*format);
 			break;
 	}
