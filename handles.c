@@ -12,31 +12,32 @@ int handle_specifier(const char *format, va_list args)
 {
 	int count = 0;
 
-	if (*format == '%')
-	{
-		count += _putchar('%');
-		return (count);
-	}
+	if (!format)
+		return (-1);
 
 	switch (*format)
 	{
-		case 'c': /* Especificador %c */
+		case 'c':
 			count += handlers_c(args);
 			break;
-		case 's': /* Especificador %s */
-			count += handlers_s(args); /* Manage strings */
+		case 's':
+			count += handlers_s(args);
 			break;
 		case 'i':
-		case 'd': /* Especificador %i & %d */
+		case 'd':
 			count += handlers_di(args);
 			break;
-		default: /* Especificador desconocido */
+		case '%':
+			count += _putchar('%');
+			break;
+		default:
 			count += _putchar('%');
 			count += _putchar(*format);
 			break;
 	}
 	return (count);
 }
+
 
 /**
  * handlers_c - Handles the %c format specifier for characters.
@@ -48,22 +49,12 @@ int handle_specifier(const char *format, va_list args)
 int handlers_c(va_list args)
 {
 	int count = 0;
-	char c = va_arg(args, int);
 
-	/* If the character is null, print '0' */
-	if (c == 0)
-	{
-		c = '0';
-		count += _putchar(c);
-		return (0);
-	}
-	else
-	{
-		/* Print the character */
-		count += _putchar(c);
-	}
+	count += _putchar(va_arg(args, int));
 
 	return (count);
+
+
 }
 
 /**
@@ -77,29 +68,18 @@ int handlers_s(va_list args)
 	char *p = va_arg(args, char *);
 	int count = 0;
 
-	/* If the string is NULL, use "(null)" */
 	if (!p)
-	{
 		p = "(null)";
-		while (*p)
-		{
-			count += _putchar(*p);
-			p++;
-		}
-		return (0);
+
+	while (*p)
+	{
+		count += _putchar(*p);
+		p++;
 	}
 
-	else
-	{
-		/* Loop through the string and print each character */
-		while (*p)
-		{
-			count += _putchar(*p);
-			p++;
-		}
-	}
 	return (count);
 }
+
 
 /**
  * handlers_di - Handles the conversion specifiers 'd' and 'i'

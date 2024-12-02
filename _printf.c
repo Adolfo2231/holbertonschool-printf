@@ -14,28 +14,21 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	if (!format)
 	{
-		format = "(null)";
-		while (*format)
-		{
-			count += _putchar(*format);
-			format++;
-		}
-		_putchar('\n');
-		return (0);
+		return (-1);
 	}
 	while (*format)
 	{
-		if (*format == '%') /* Identifica un especificador */
+		if (*format == '%')
 		{
 			format++;
-			handle_specifier(format, args);/* Maneja 'c', 's', 'd', 'i' */
+			count += handle_specifier(format, args);
 		}
-		else /* Imprime texto literal */
+		else
 		{
 			count += _putchar(*format);
 		}
 		format++;
 	}
 	va_end(args);
-	return (count + 1); /* Conteo de caracteres (mas 1 por '\0') */
+	return (count);
 }
