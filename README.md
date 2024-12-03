@@ -45,7 +45,7 @@ Project Structure
 
     handlers.c: Contains helper functions for handling different specifiers.
 
-    man_3_printf: Manual page for the _printf function.
+    _printf.man: Manual page for the _printf function.
 
     README.md: This README file.
 
