@@ -136,10 +136,10 @@ Authors
 
     Carlos Valentin
 
-        Github: https://github.com/Cvalentin4153
-        LinkedIn: www.linkedin.com/in/carlos-valentin-24706b336
+        Github: (https://github.com/Cvalentin4153)
+        LinkedIn: (www.linkedin.com/in/carlos-valentin-24706b336)
 
     Adolfo Rodriguez
 
-        Github: https://github.com/Adolfo2231
-        LinkedIn: https://www.linkedin.com/in/adolfo-rodriguez-22b178330
+        Github: (https://github.com/Adolfo2231)
+        LinkedIn: (https://www.linkedin.com/in/adolfo-rodriguez-22b178330)
