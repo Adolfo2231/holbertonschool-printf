@@ -4,7 +4,7 @@ NAME
      _printf – custom formatted output conversion
 
 SYNOPSIS
-     #include <stdarg.h>
+     #include "main.h"
 
      int _printf(const char *format, ...);
 
