@@ -131,15 +131,13 @@ Limitations
         Field width and precision specifiers.
 
         Error handling for unsupported specifiers is minimal.
-
+        
 Authors
+    
+Carlos Valentin
+[Github](https://github.com/Cvalentin4153)
+[LinkedIn](www.linkedin.com/in/carlos-valentin-24706b336[](url))
 
-    Carlos Valentin
-
-        <a href=https://github.com/Cvalentin4153> Github </a>
-        [LinkedIn](www.linkedin.com/in/carlos-valentin-24706b336[](url))
-
-    Adolfo Rodriguez
-
-        [Github](https://github.com/Adolfo2231)
-        [LinkedIn](https://www.linkedin.com/in/adolfo-rodriguez-22b178330)
+Adolfo Rodriguez
+[Github](https://github.com/Adolfo2231)
+[LinkedIn](https://www.linkedin.com/in/adolfo-rodriguez-22b178330)
