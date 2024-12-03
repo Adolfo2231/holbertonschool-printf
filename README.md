@@ -136,8 +136,8 @@ Authors
 
     Carlos Valentin
 
-        [Github](https://github.com/Cvalentin4153)
-        [LinkedIn](www.linkedin.com/in/carlos-valentin-24706b336)
+        <a href=https://github.com/Cvalentin4153> Github </a>
+        [LinkedIn](www.linkedin.com/in/carlos-valentin-24706b336[](url))
 
     Adolfo Rodriguez
 
